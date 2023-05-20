@@ -1,0 +1,65 @@
+# 56, 40, 81
+MDScreen:
+    md_bg_color:56/255,40/255,81/255,1
+    MDBoxLayout:
+        orientation:'vertical'
+        MDGridLayout:
+            size_hint_y:.75
+            cols:2
+            padding:[dp(15),dp(15),dp(15),dp(35)]
+            spacing:dp(15)
+            MDCard:
+                md_bg_color:69/255,55/255,86/255,1
+                padding:dp(15)
+                spacing:dp(15)
+                radius:dp(25)
+                ripple_behavior: True
+                orientation:'vertical'
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                MDIconButton:
+                    icon:"lightbulb"
+                    pos_hint:{"center_x": 0.5}
+                    on_release: self.icon = "lightbulb-on" if self.icon == "lightbulb-off" else "lightbulb-off"
+                MDBoxLayout:
+                    orientation:'vertical'
+                    MDLabel:
+                        halign:"center"
+                        text:'LED'
+                        font_style:"H6"
+        MDGridLayout:
+            size_hint_y:.75
+            cols:2
+            padding:[dp(15),dp(15),dp(15),dp(35)]
+            spacing:dp(15)
+            CustomCard:
+                id: on
+                md_bg_color:69/255,55/255,86/255,1
+                padding:dp(15)
+                spacing:dp(15)
+                radius:dp(25)
+                ripple_behavior: True
+                orientation:'vertical'
+
+                on_press: self.toggle_light()
+                MDBoxLayout:
+                    orientation:'vertical'
+                    MDLabel:
+                        halign:"center"
+                        text:'Turn ON'
+                        font_style:"H6"
+            CustomCard:
+                id: off
+                md_bg_color:69/255,55/255,86/255,1
+                padding:dp(15)
+                spacing:dp(15)
+                radius:dp(25)
+                ripple_behavior: True
+                orientation:'vertical'
+
+                on_press: self.turn_off()
+                MDBoxLayout:
+                    orientation:'vertical'
+                    MDLabel:
+                        halign:"center"
+                        text:'Turn OFF'
+                        font_style:"H6"
